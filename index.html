@@ -23,7 +23,15 @@
             body {
                 display: flex;
                 gap: 24px;
-                height: 100vh;
+                padding: 0;
+                border: none;
+                margin: 0;
+                overflow-x: hidden;
+            }
+            html {
+                padding: 0;
+                border: none;
+                margin: 0;
             }
             canvas {
                 display: block;
@@ -42,6 +50,8 @@
                 align-items: center;
                 height: fit-content;
                 margin: auto;
+                padding: 24px;
+                width: 60%;
             }
             #pane {
                 flex: 1;
@@ -51,14 +61,15 @@
                 justify-content: center;
                 align-items: center;
                 gap: 12px;
+                width: 40%;
             }
             #download {
                 width: 100%;
             }
             .item {
                 display: flex;
-                width: 50%;
                 padding-left: 24px;
+                width: 80%;
             }
             .item > label {
                 flex: 1;
