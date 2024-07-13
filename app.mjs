@@ -1,5 +1,5 @@
 const img = document.querySelector("#img");
-const scene = document.querySelector("#scene");
+const scene = document.querySelector("#sceneInner");
 const fontColor = document.querySelector("#fontColor");
 const fontSize = document.querySelector("#fontSize");
 const customImg = document.querySelector("#customImg");
