@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>是我说的！</title>
+        <script src="./html2canvas.min.js"></script>
+        <style>
+            @font-face {
+                font-family: "PRSXT";
+                src: url(./品如手写体.ttf) format("truetype"); /* 字体文件的路径和格式 */
+                /* 可选的其他属性 */
+                font-weight: normal; /* 字体粗细 */
+                font-style: normal; /* 字体样式（normal, italic） */
+            }
+            @font-face {
+                font-family: "PLAYBALL";
+                src: url(./Playball-Regular.ttf) format("truetype"); /* 字体文件的路径和格式 */
+                /* 可选的其他属性 */
+                font-weight: normal; /* 字体粗细 */
+                font-style: normal; /* 字体样式（normal, italic） */
+            }
+            body {
+                display: flex;
+                gap: 24px;
+                height: 100vh;
+            }
+            canvas {
+                display: block;
+                max-width: 600px;
+            }
+            img {
+                display: none;
+                visibility: hidden;
+                width: 600px;
+                height: 800px;
+            }
+            #scene {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: fit-content;
+                margin: auto;
+            }
+            #pane {
+                flex: 1;
+                margin-top: 24px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+            }
+            #download {
+                width: 100%;
+            }
+            .item {
+                display: flex;
+                width: 50%;
+                padding-left: 24px;
+            }
+            .item > label {
+                flex: 1;
+            }
+            .item > input {
+                flex: 1;
+            }
+            .item > input::after {
+                content: attr(data-size);
+                position: relative;
+                left: 24px;
+            }
+            h1,
+            textarea {
+                font-family: PRSXT;
+                font-size: 2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <img id="img" src="鲁迅.jpeg" />
+        <div id="pane">
+            <h1 style="font-size: 4rem">是的，我说过这话！</h1>
+            <div class="item">
+                <label for="customImg">上传图片</label>
+                <input
+                    type="file"
+                    name="customImg"
+                    id="customImg"
+                    accept="image/jpeg, image/png, .jpg, .jpeg, .png"
+                />
+            </div>
+            <div class="item">
+                <label for="fontColor">字体颜色</label>
+                <input type="color" name="fontColor" id="fontColor" />
+            </div>
+            <!-- <div class="item">
+                <label for="font">字体选择</label>
+                <div style="margin-right: 40px">
+                    <input
+                        type="radio"
+                        name="font"
+                        id="PRSXT"
+                        value="PRSXT"
+                        checked
+                    />
+                    <label for="PRSXT">品如手写体</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        name="font"
+                        id="PLAYBALL"
+                        value="PLAYBALL"
+                    />
+                    <label for="PLAYBALL">手写英文</label>
+                </div>
+            </div> -->
+            <div class="item">
+                <label for="fontSize">字体大小</label>
+                <input
+                    type="range"
+                    name="fontSize"
+                    id="fontSize"
+                    min="24"
+                    max="400"
+                />
+            </div>
+            <div class="item">
+                <label for="lineHeight">行间距</label>
+                <input
+                    type="range"
+                    min="0"
+                    max="150"
+                    name="lineHeight"
+                    id="lineHeight"
+                />
+            </div>
+            <div class="item">
+                <textarea
+                    name="texts"
+                    id="texts"
+                    cols="60"
+                    rows="10"
+                ></textarea>
+            </div>
+            <div class="item">
+                <button type="button" id="download">下载</button>
+            </div>
+        </div>
+        <div id="scene"></div>
+
+        <script type="module" src="./app.mjs"></script>
+    </body>
+</html>
